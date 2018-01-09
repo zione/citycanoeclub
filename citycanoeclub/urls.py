@@ -17,6 +17,11 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+from common import views
+
+handler403 = views.permission_denied
+handler404 = views.page_not_found
+handler500 = views.page_error
 
 urlpatterns = [
     path('admin/', admin.site.urls),

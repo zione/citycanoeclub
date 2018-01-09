@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}routes{% endblock %}
+{% block content %}
+    {% for route in object_list %}
+        <p><a href="{{ route.get_absolute_url }}">{{ route.name }}</a></p>
+        <p>{{ route.desc }}</p>
+        <br/>
+    {% empty %}
+        <p>no route</p>
+    {% endfor %}
+{% endblock %}

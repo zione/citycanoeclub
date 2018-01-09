@@ -6,11 +6,14 @@ from .models import RouteInfo
 # Create your views here.
 
 
-def routes_list(ListView):
+class RouteList(ListView):
     template_name = 'route/list.html'
-    module = RouteInfo
+    model = RouteInfo
+
+    def get_queryset(self):
+        return RouteInfo.published.all()
 
 
-def route_detail(DetailView):
-    module = RouteInfo
+class RouteDetail(DetailView):
+    model = RouteInfo
     template_name = 'route/detail.html'
