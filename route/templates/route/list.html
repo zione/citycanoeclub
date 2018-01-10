@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-
 {% block title %}routes{% endblock %}
 {% block content %}
-    {% for route in object_list %}
+    {% for route in page_obj %}
         <p><a href="{{ route.get_absolute_url }}">{{ route.name }}</a></p>
-        <p>{{ route.desc }}</p>
+        <p class="desc">{{ route.desc }}</p>
         <br/>
     {% empty %}
         <p>no route</p>
     {% endfor %}
+    {% include "common/pagination.html" with page=page_obj %}
 {% endblock %}

@@ -18,6 +18,8 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from common import views
+from account import views as acc_view
+
 
 handler403 = views.permission_denied
 handler404 = views.page_not_found
@@ -26,6 +28,8 @@ handler500 = views.page_error
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('route/', include('route.urls', namespace='route')),
+    path('account/', include('account.urls', namespace='account')),
+    path('', acc_view.home_page, name='homepage'),
 ]
 
 if settings.DEBUG:

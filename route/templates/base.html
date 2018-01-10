@@ -10,7 +10,7 @@
 
     <header >
         <ul>
-            <li><a href="#home">主页</a></li>
+            <li><a href="{% url 'homepage' %}">主页</a></li>
             <li><a href="">编年史</a></li>
             <li><a href="">议事厅</a></li>
             <li><a href="{% url 'route:route_list' %}">航线</a></li>
@@ -18,10 +18,11 @@
         </ul>
         <span class="user">
             {% if request.user.is_authenticated %}
-                Hello {{ request.user.first_name }},
-                <a class="logout" href="#">Logout</a>
+                Hello {{ request.user.username }},
+                <a class="logout" href="{% url 'account:logout' %}">Logout</a>
             {% else %}
-                <a class="login" href="#">Login</a>
+                <a class="login" href="{% url 'account:login' %}">Register</a>
+                <a class="login" href="{% url 'account:login' %}">Login</a>
             {% endif %}
         </span>
     </header>

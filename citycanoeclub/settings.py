@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os
+from django.urls import reverse_lazy
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'common',
     'route',
+    'account',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +130,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
+
+LOGIN_URL = reverse_lazy('account:login')
+LOGOUT_URL = reverse_lazy('account:logout')
+LOGIN_REDIRECT_URL = reverse_lazy('account:profile')
+LOGOUT_REDIRECT_URL = reverse_lazy('route:route_list')
