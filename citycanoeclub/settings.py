@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,7 +43,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'common',
     'route',
-    'account',
 ]
 
 MIDDLEWARE = [
@@ -134,4 +134,4 @@ TEMPLATE_DIRS = (os.path.join(BASE_DIR,  'templates'),)
 LOGIN_URL = reverse_lazy('account:login')
 LOGOUT_URL = reverse_lazy('account:logout')
 LOGIN_REDIRECT_URL = reverse_lazy('account:profile')
-LOGOUT_REDIRECT_URL = reverse_lazy('route:route_list')
+# LOGOUT_REDIRECT_URL = reverse_lazy('route:route_list')
